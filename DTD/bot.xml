@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<!DOCTYPE pregunta SYSTEM "bot.dtd">
+<pregunta categoria="saludo">
+  <contenido>Hola</contenido>
+  <respuesta>Hola, ¿Cómo estás?</respuesta>
+  <respuesta>Buen día</respuesta>
+</pregunta>

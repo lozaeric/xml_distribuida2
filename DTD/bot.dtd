@@ -1,0 +1,4 @@
+<!ELEMENT pregunta (contenido, respuesta+)>
+  <!ATTLIST pregunta categoria (consulta|saludo|despedida|otros) #REQUIRED>
+<!ELEMENT contenido (#PCDATA)>
+<!ELEMENT respuesta (#PCDATA)>
