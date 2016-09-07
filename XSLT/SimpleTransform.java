@@ -53,8 +53,8 @@ public class SimpleTransform
 
 	// Use the Transformer to apply the associated Templates object to an XML document
 	// (foo.xml) and write the output to a file (foo.out).
-	transformer.transform(new StreamSource("actividad2.xml"), new StreamResult(new FileOutputStream("actividad2.out")));
+	transformer.transform(new StreamSource("actividad2.xml"), new StreamResult(new FileOutputStream("out.xml")));
 	
-	System.out.println("************* The result is in birds.out *************");
+	System.out.println("************* The result is in out.xml *************");
   }
 }
