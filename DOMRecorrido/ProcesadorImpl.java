@@ -1,8 +1,8 @@
 import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 
-public class ProcesadorImpl implements Procesador {
-
+public class ProcesadorImpl extends Procesador {
 	public void procesar (Node nodo) {
     	if (nodo.getNodeType()==Node.TEXT_NODE)
     		System.out.println("Texto: "+nodo.getNodeName());

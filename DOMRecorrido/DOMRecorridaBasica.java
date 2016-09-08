@@ -42,19 +42,9 @@ public class DOMRecorridaBasica {
         Document doc = parser.getDocument();
 
         Node root = doc.getDocumentElement();
-        recorrer (root, new ProcesadorImpl());
+        ProcesadorImpl p = new ProcesadorImpl();
+        p.recorrer (root);
 
-    }
-    
-    public static void recorrer (Node nodo, Procesador p) {
-    	p.procesar(nodo);
-    	
-    	NodeList hijos = nodo.getChildNodes();
-    	Node node;
-    	for(int i=0;i<hijos.getLength();i++){
-            node = hijos.item(i);
-            recorrer(node, p);
-        }
     }
     
 }
