@@ -42,50 +42,19 @@ public class DOMRecorridaBasica {
         Document doc = parser.getDocument();
 
         Node root = doc.getDocumentElement();
-        recorrer (root);
+        recorrer (root, new ProcesadorImpl());
 
     }
     
-    public static void recorrer (Node nodo) {
-    	if (nodo.getNodeType()==Node.TEXT_NODE)
-    		System.out.println("Texto: "+nodo.getNodeName());
-    	else if (nodo.getNodeType()==Node.COMMENT_NODE)
-    		System.out.println("Comment: "+nodo.getNodeName());
-    	else if (nodo.getNodeType()==Node.ATTRIBUTE_NODE)
-    		System.out.println("Attribute: "+nodo.getNodeName());
-    	else
-    		System.out.println("Nodo: "+nodo.getNodeName());
+    public static void recorrer (Node nodo, Procesador p) {
+    	p.procesar(nodo);
     	
     	NodeList hijos = nodo.getChildNodes();
+    	Node node;
     	for(int i=0;i<hijos.getLength();i++){
-            Node node = hijos.item(i);
-            recorrer(node);
+            node = hijos.item(i);
+            recorrer(node, p);
         }
     }
-
-    public static void recorrer2 (Node root) {
-    	ArrayDeque<Node> recorrido = new ArrayDeque<Node> ();
-    	Node actual;
-    	
-    	recorrido.add(root);
-    	while (!recorrido.isEmpty()) {
-    		actual = recorrido.remove();
-    		NodeList hijos = actual.getChildNodes();
-    		if (hijos.getLength()==0)
-    			continue;
-        	for(int i=0;i<hijos.getLength();i++){
-                Node node = hijos.item(i);
-                if (node.getNodeType()==Node.TEXT_NODE)
-            		System.out.println("Texto: "+node.getNodeName());
-            	if (node.getNodeType()==Node.COMMENT_NODE)
-            		System.out.println("Comment: "+node.getNodeName());
-            	if (node.getNodeType()==Node.ATTRIBUTE_NODE)
-            		System.out.println("Attribute: "+node.getNodeName());
-            	else
-            		System.out.println("Nodo: "+node.getNodeName());
-                recorrido.addLast(node);
-            }
-    	}
-    }    
     
 }
